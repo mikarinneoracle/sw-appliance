@@ -1,0 +1,60 @@
+version: 2
+services:
+  backend:
+    image: 'mikarinneoracle/dockernode:sticky'
+    environment:
+      - OCCS_PHASE_ID=2
+      - USE_SESSIONS=true
+      - 'occs:availability=per-pool'
+      - 'occs:scheduler=random'
+      - >-
+        occs:description=The Node backends will be load balanced dynamically
+        using service discovery.
+      - 'constraint:pool_id==pool_id'
+      - 'BACKEND_MONGODB_HOST={{ proxy "MongoDB:27017" }}'
+    ports:
+      - 3000/tcp
+  HAProxy:
+    image: 'mikarinneoracle/haproxy:0.5'
+    environment:
+      - 'OCCS_API_TOKEN={{api_token}}'
+      - OCCS_PHASE_ID=3
+      - KV_IP=172.17.0.1
+      - KV_PORT=9109
+      - 'OCCS_BACKEND_KEY={{sd_deployment_containers_path "backend" 3000}}'
+      - 'occs:availability=per-pool'
+      - 'occs:scheduler=random'
+      - >-
+        occs:description=This is a HA Proxy loadbalancer with Apache backends.
+        Visit port 8886 on the host running the loadbalancer to view the running
+        example. Because this service has a static host-bound port, only one
+        deployment can be done per host without getting port conflicts.
+      - 'OCCS_HEALTHCHECK_tcp=tcp://:8886/?timeout=10s&interval=30s'
+    ports:
+      - '8886:5000/tcp'
+      - '1936:1936/tcp'
+  logspout:
+    image: 'mikarinneoracle/logspout:0.2'
+    environment:
+      - DEBUG=true
+      - OCCS_PHASE_ID=4
+      - 'OCCS_API_TOKEN={{api_token}}'
+      - KV_IP=172.17.0.1
+      - KV_PORT=9109
+      - 'OCCS_LOGSTASH_KEY={{sd_deployment_containers_path "logstash" 5000}}'
+      - 'occs:availability=per-host'
+    volumes:
+      - '/var/run/docker.sock:/var/run/docker.sock'
+  MongoDB:
+    image: 'mongo:3.2.8'
+    environment:
+      - OCCS_PHASE_ID=1
+      - >-
+        occs:description=The official MongoDB image. This example is provided
+        as-is for educational purposes and should not be used in production.
+    volumes:
+      - '/var/lib/mongodb:/data/db:rw'
+    command: mongod --noauth
+    ports:
+      - 27017/tcp
+
