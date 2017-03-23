@@ -4,7 +4,8 @@
 
 Copied from my <a href="https://www.linkedin.com/pulse/test-mika-rinne">linked in article</a>.
 
-#### Hi-level architecture. Not perfect but gives an idea how the MongoDB data is backed up and can be copied to another instance. Please note that this does not describe how to do MOngoDB clustering.
+#### Hi-level architecture.
+Not perfect but hopefully gives an idea how the MongoDB data is backed up and can be copied to another instance. Please note that this does not describe how to do MongoDB clustering (properly).
 
 ![Logo](OCSCA.png)
 
@@ -79,7 +80,7 @@ You may try iterating this a few times to see how it works!
 #### Oracle Container Cloud Service and the example stack
 ![Logo](console.png)
 
-#### IP address of the example stack's MongoDb Docker instance
+#### IP address of the example stack's MongoDB Docker instance
 ![Logo](mongodbip.png)
 
 
