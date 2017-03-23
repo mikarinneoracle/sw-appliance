@@ -32,7 +32,7 @@ The next step is to install nfs-utils for NFS mounting and to do this there are 
 <ul>
 <li>Using <i>sudo vi /etc/yum.repos.d/public-yum-ol6.repo</i> copy the contents of <a href="public-yum-ol6.repo">this file into it</a>. (However, if the file is there you don't have add or edit it. On regular OL6.6 compute nodes this is the case.)</li>
 <li>Using <i>sudo vi /etc/yum.conf</i> remove the proxy configurations in the end of the file. You can comment (#) them out.</li>
-<li>Finally do sudo yum install nsf-utils.</li>
+<li>Finally do <i>sudo yum install nsf-utils</i>.</li>
 <li>After this is done let's create the OSCSA NFS mounting point for Dockers to use. This is used to store files in the Oracle Storage Cloud service.</li>
 </ul>
 
@@ -61,13 +61,11 @@ Do <i>ls -la /var/lib/mongodb</i> to see the same MongoDB files on the this seco
 If you want to fully test MondoDB working in this example, do the following (see screenshots at the end of this page):
 
 <ul>
-<li>
-Call the example stack from browser using haproxy port 8886 and running some "laps" for a user named "demo" (use the IP address of the example stack's haproxy instance on the first VM and then click the tab "Userid test" from the menu). See the value counting for the user "demo".</li>
+<li>Call the example stack from browser using haproxy port 8886 and running some "laps" for a user named "demo" (use the IP address of the example stack's haproxy instance on the first VM and then click the tab "Userid test" from the menu). See the value counting for the user "demo".</li>
 <li>Reboot the Docker daemon for second VM, too, as described on the step 3.</li>
-<li>Stop the stack example instance on the first VM.</ul>
+<li>Stop the stack example instance on the first VM.</li>
 <li>Spin up the the stack demo on the second VM. Repeat step 1 for this VM using it's example stack's haproxy instace's IP address and port 8886. The expected result should be that the example Docker stack for user "demo" continues counting from the point where it was left in the step 1.</li>
 </ul>
-<br>
 
 You may try iterating this a few times to see how it works!
 
