@@ -4,6 +4,10 @@
 
 Copied from my <a href="https://www.linkedin.com/pulse/test-mika-rinne">linked in article</a>.
 
+#### Hi-level architecture. Not perfect but gives an idea how the MongoDB data is backed up and can be copied to another instance. Please note that this does not describe how to do MOngoDB clustering.
+
+![Logo](OCSCA.png)
+
 ## Step 1. Creating the Oracle Storage Cloud software appliance
 
 The first thing to do is to install the OSCSA to the cloud. OSCSA is the component that talks REST to the Oracle Storage Cloud and hosts the logical file system that can be then NFS mounted on any of the cloud VM's to store data, including Oracle Container Cloud VM's for running the Docker instances. Here is the <a href="http://docs.oracle.com/en/cloud/iaas/storage-appliance-cloud/sfsug/workflow-setting-appliance.html">workflow</a> for doing this.
