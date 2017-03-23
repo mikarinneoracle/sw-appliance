@@ -59,11 +59,11 @@ Now all should be set and you can try spinning up a Docker stack instance from t
 
 ## Step 4. Testing the mounting point on another Container Cloud Service VM
 
-By following the step 2 on another VM the MongoDB data should be automatically loaded and sync'ed to /var/lib/mongodb after doing the sudo mount -a. 
+By following the step 2 on another VM the MongoDB data should be automatically loaded and sync'ed to /var/lib/mongodb after doing the sudo mount -a.
 
 Do <i>ls -la /var/lib/mongodb</i> to see the same MongoDB files on the this second VM as in the first one. Voilà!
 
-If you want to fully test MondoDB working in this example, do the following (see screenshots at the end of this page):
+If you want to fully test MongoDB working in this example, do the following (see screenshots at the end of this page):
 
 <ul>
 <li>Call the example stack from browser using haproxy port 8886 and running some "laps" for a user named "demo" (use the IP address of the example stack's haproxy instance on the first VM and then click the tab "Userid test" from the menu). See the value counting for the user "demo".</li>
@@ -82,5 +82,3 @@ You may try iterating this a few times to see how it works!
 
 #### IP address of the example stack's MongoDB Docker instance
 ![Logo](mongodbip.png)
-
-
