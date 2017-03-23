@@ -21,7 +21,7 @@ Since we are using the VM's that run the Dockers in Container Cloud Service ther
 
 When setting up an Oracle Container Cloud Service to the cloud, you specify how many worker nodes that service consists of. Each worker node will be then an individual VM of a desired shape as part of the Container Cloud Service instance and can be accessed with ssh and the public key you have.
 
-#### Example Docker instances in Oracle Container Cloud service console
+#### Example Docker instances in Oracle Container Cloud Service console
 ![Logo](serviceconsole.png)
 
 The first thing to do is to ssh login to a worker node VM with it's public IP address and the opc user. The address is visible in the Container Cloud Service console as well as in the excellent <a href="http://docs.oracle.com/en/cloud/iaas/container-cloud/contu/accessing-container-console-oracle-container-cloud-service.html#CONTU-GUID-F802EDD4-E193-4921-9018-A09022DB4003">Container</a> Console of the service to run and orchestrate your Dockers.
@@ -58,14 +58,14 @@ By following the step 2 on another VM the MongoDB data should be automatically l
 
 Do ls -la /var/lib/mongodb to see the same MongoDB files on the this second VM as in the first one. Voilà!
 
-If you want to fully test MondoDB working in this example, do the following:
+If you want to fully test MondoDB working in this example, do the following (see screenshots at the end of this page):
 
 <ul>
 <li>
 Call the example stack from browser using haproxy port 8886 and running some "laps" for a user named "demo" (use the IP address of the example stack's haproxy instance on the first VM and then click the tab "Userid test" from the menu). See the value counting for the user "demo".</li>
 <li>Reboot the Docker daemon for second VM, too, as described on the step 3.</li>
 <li>Stop the stack example instance on the first VM.</ul>
-<li>Spin up the the stack demo on the second VM. Repeat step 1 for this VM using it's example stack's haproxy instace's IP address and port 8886. The expected result should be that the example Docker stack for user "demo" continues counting from the point where it was left in the step 1.
+<li>Spin up the the stack demo on the second VM. Repeat step 1 for this VM using it's example stack's haproxy instace's IP address and port 8886. The expected result should be that the example Docker stack for user "demo" continues counting from the point where it was left in the step 1.</li>
 </ul>
 You may try iterating this a few times to see how it works!
 
@@ -75,7 +75,7 @@ You may try iterating this a few times to see how it works!
 #### Oracle Container Cloud Service and the example stack
 ![Logo](console.png)
 
-#### IP address of the exmaple stack's MongoDb Docker instance
+#### IP address of the example stack's MongoDb Docker instance
 ![Logo](mongodbip.png)
 
 
