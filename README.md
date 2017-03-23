@@ -4,6 +4,10 @@
 
 Copied from my <a href="https://www.linkedin.com/pulse/test-mika-rinne">linked in article</a>.
 
+#### Hi-level architecture. Not perfect but gives an idea how the MongoDB data is backed up and can be copied to another instance. Please note that this does not describe how to do MOngoDB clustering.
+
+![Logo](OCSCA.png)
+
 ## Step 1. Creating the Oracle Storage Cloud software appliance
 
 The first thing to do is to install the OSCSA to the cloud. OSCSA is the component that talks REST to the Oracle Storage Cloud and hosts the logical file system that can be then NFS mounted on any of the cloud VM's to store data, including Oracle Container Cloud VM's for running the Docker instances. Here is the <a href="http://docs.oracle.com/en/cloud/iaas/storage-appliance-cloud/sfsug/workflow-setting-appliance.html">workflow</a> for doing this.
@@ -31,8 +35,8 @@ When you login (for example: <i>ssh opc@140.86.9.30</i>) you can see the VM runs
 The next step is to install nfs-utils for NFS mounting and to do this there are three things:
 <ul>
 <li>Using <i>sudo vi /etc/yum.repos.d/public-yum-ol6.repo</i> copy the contents of <a href="public-yum-ol6.repo">this file into it</a>. (However, if the file is there you don't have add or edit it. On regular OL6.6 compute nodes this is the case.)</li>
-<li>Using <i>sudo vi /etc/yum.conf</i> remove the proxy configurations in the end of the file. You can comment (#) them out.
-Finally do sudo yum install nsf-utils.</li>
+<li>Using <i>sudo vi /etc/yum.conf</i> remove the proxy configurations in the end of the file. You can comment (#) them out.</li>
+<li>Finally do <i>sudo yum install nsf-utils</i>.</li>
 <li>After this is done let's create the OSCSA NFS mounting point for Dockers to use. This is used to store files in the Oracle Storage Cloud service.</li>
 </ul>
 
@@ -61,13 +65,11 @@ Do <i>ls -la /var/lib/mongodb</i> to see the same MongoDB files on the this seco
 If you want to fully test MondoDB working in this example, do the following (see screenshots at the end of this page):
 
 <ul>
-<li>
-Call the example stack from browser using haproxy port 8886 and running some "laps" for a user named "demo" (use the IP address of the example stack's haproxy instance on the first VM and then click the tab "Userid test" from the menu). See the value counting for the user "demo".</li>
+<li>Call the example stack from browser using haproxy port 8886 and running some "laps" for a user named "demo" (use the IP address of the example stack's haproxy instance on the first VM and then click the tab "Userid test" from the menu). See the value counting for the user "demo".</li>
 <li>Reboot the Docker daemon for second VM, too, as described on the step 3.</li>
-<li>Stop the stack example instance on the first VM.</ul>
+<li>Stop the stack example instance on the first VM.</li>
 <li>Spin up the the stack demo on the second VM. Repeat step 1 for this VM using it's example stack's haproxy instace's IP address and port 8886. The expected result should be that the example Docker stack for user "demo" continues counting from the point where it was left in the step 1.</li>
 </ul>
-<br>
 
 You may try iterating this a few times to see how it works!
 
