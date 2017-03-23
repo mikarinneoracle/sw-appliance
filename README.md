@@ -67,6 +67,7 @@ Call the example stack from browser using haproxy port 8886 and running some "la
 <li>Stop the stack example instance on the first VM.</ul>
 <li>Spin up the the stack demo on the second VM. Repeat step 1 for this VM using it's example stack's haproxy instace's IP address and port 8886. The expected result should be that the example Docker stack for user "demo" continues counting from the point where it was left in the step 1.</li>
 </ul>
+<br>
 
 You may try iterating this a few times to see how it works!
 
