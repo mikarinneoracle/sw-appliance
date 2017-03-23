@@ -26,23 +26,23 @@ When setting up an Oracle Container Cloud Service to the cloud, you specify how 
 
 The first thing to do is to ssh login to a worker node VM with it's public IP address and the opc user. The address is visible in the Container Cloud Service console as well as in the excellent <a href="http://docs.oracle.com/en/cloud/iaas/container-cloud/contu/accessing-container-console-oracle-container-cloud-service.html#CONTU-GUID-F802EDD4-E193-4921-9018-A09022DB4003">Container</a> Console of the service to run and orchestrate your Dockers.
 
-When you login (for example: ssh opc@140.86.9.30) you can see the VM runs on Oracle Linux Server release 6.6.x
+When you login (for example: <i>ssh opc@140.86.9.30</i>) you can see the VM runs on Oracle Linux Server release 6.6.x
 
 The next step is to install nfs-utils for NFS mounting and to do this there are three things:
 <ul>
-<li>Using sudo vi /etc/yum.repos.d/public-yum-ol6.repo copy the contents of <a href="public-yum-ol6.repo">this file into it</a>. (However, if the file is there you don't have add or edit it. On regular OL6.6 compute nodes this is the case.)</li>
-<li>Using sudo vi /etc/yum.conf remove the proxy configurations in the end of the file. You can comment (#) them out.
+<li>Using <i>sudo vi /etc/yum.repos.d/public-yum-ol6.repo</i> copy the contents of <a href="public-yum-ol6.repo">this file into it</a>. (However, if the file is there you don't have add or edit it. On regular OL6.6 compute nodes this is the case.)</li>
+<li>Using <i>sudo vi /etc/yum.conf</i> remove the proxy configurations in the end of the file. You can comment (#) them out.
 Finally do sudo yum install nsf-utils.</li>
 <li>After this is done let's create the OSCSA NFS mounting point for Dockers to use. This is used to store files in the Oracle Storage Cloud service.</li>
 </ul>
 
 First, let's look at the <a href="fullstack_example.yaml">example stack YAML</a>. The <a href="fullstack_example.yaml#L56">volume</a> specifies the location in the VM's file system to MongoDB to use for it's persistent data. The data does not disappear even the Docker stack instance is deleted and created again.
 
-Do sudo mkdir /var/lib/mongodb to create this.
+Do <i>sudo mkdir /var/lib/mongodb</i> to create this.
 
 Next follow <a href="http://docs.oracle.com/en/cloud/iaas/storage-appliance-cloud/sfsug/mounting-appliance-filesystems-client-instances.html">these</a> steps to complete the NFS mounting. When adding the mounting point to /etc/fstab it's best to use tabs between values.
 
-After saving do sudo mount -a.
+After saving do <i>sudo mount -a</i>.
 
 ## Step 3. Reboot the Docker on the Container Cloud VM
 
@@ -56,7 +56,7 @@ Now all should be set and you can try spinning up a Docker stack instance from t
 
 By following the step 2 on another VM the MongoDB data should be automatically loaded and sync'ed to /var/lib/mongodb after doing the sudo mount -a. 
 
-Do ls -la /var/lib/mongodb to see the same MongoDB files on the this second VM as in the first one. Voilà!
+Do <i>ls -la /var/lib/mongodb</i> to see the same MongoDB files on the this second VM as in the first one. Voilà!
 
 If you want to fully test MondoDB working in this example, do the following (see screenshots at the end of this page):
 
@@ -67,6 +67,7 @@ Call the example stack from browser using haproxy port 8886 and running some "la
 <li>Stop the stack example instance on the first VM.</ul>
 <li>Spin up the the stack demo on the second VM. Repeat step 1 for this VM using it's example stack's haproxy instace's IP address and port 8886. The expected result should be that the example Docker stack for user "demo" continues counting from the point where it was left in the step 1.</li>
 </ul>
+
 You may try iterating this a few times to see how it works!
 
 #### Example stack testing tool
