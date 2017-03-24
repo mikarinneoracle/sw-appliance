@@ -4,7 +4,7 @@
 
 Copied from my <a href="https://www.linkedin.com/pulse/test-mika-rinne">linked in article</a>.
 
-#### Hi-level architecture.
+#### Hi-level architecture
 Not perfect but hopefully gives an idea how the MongoDB data is backed up and can be copied to another instance. Please note that this does not describe how to do MongoDB clustering (properly).
 
 ![Logo](OCSCA.png)
