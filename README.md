@@ -48,7 +48,8 @@ Do <i>sudo mkdir /var/lib/mongodb</i> to create this.
 Next follow <a href="http://docs.oracle.com/en/cloud/iaas/storage-appliance-cloud/sfsug/mounting-appliance-filesystems-client-instances.html">these</a> steps to complete the NFS mounting. When adding the mounting point to /etc/fstab it's best to use tabs between values. For example:
 
 <i>sudo vi /etc/fstab</i>
-100.96.333.14:/fileSystemMika    /var/lib/mongodb    nfs    vers=4
+
+<b>100.96.333.14:/fileSystemMika&nbsp;&nbsp;&nbsp;&nbsp;/var/lib/mongodb&nbsp;&nbsp;&nbsp;&nbsp;nfs&nbsp;&nbsp;&nbsp;&nbsp;vers=4
 
 After saving do <i>sudo mount -a</i>.
 
