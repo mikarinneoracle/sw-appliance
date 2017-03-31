@@ -49,7 +49,7 @@ Next follow <a href="http://docs.oracle.com/en/cloud/iaas/storage-appliance-clou
 
 <i>sudo vi /etc/fstab</i>
 
-<b>100.96.333.14:/fileSystemMika&nbsp;&nbsp;&nbsp;&nbsp;/var/lib/mongodb&nbsp;&nbsp;&nbsp;&nbsp;nfs&nbsp;&nbsp;&nbsp;&nbsp;vers=4
+<b>100.96.333.14:/fileSystemMika&nbsp;&nbsp;&nbsp;&nbsp;/var/lib/mongodb&nbsp;&nbsp;&nbsp;&nbsp;nfs&nbsp;&nbsp;&nbsp;&nbsp;vers=4</b>
 
 After saving do <i>sudo mount -a</i>.
 
