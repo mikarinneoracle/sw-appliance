@@ -45,7 +45,10 @@ First, let's look at the <a href="fullstack_example.yaml">example stack YAML</a>
 
 Do <i>sudo mkdir /var/lib/mongodb</i> to create this.
 
-Next follow <a href="http://docs.oracle.com/en/cloud/iaas/storage-appliance-cloud/sfsug/mounting-appliance-filesystems-client-instances.html">these</a> steps to complete the NFS mounting. When adding the mounting point to /etc/fstab it's best to use tabs between values.
+Next follow <a href="http://docs.oracle.com/en/cloud/iaas/storage-appliance-cloud/sfsug/mounting-appliance-filesystems-client-instances.html">these</a> steps to complete the NFS mounting. When adding the mounting point to /etc/fstab it's best to use tabs between values. For example:
+
+<i>sudo vi /etc/fstab</i>
+100.96.333.14:/fileSystemMika    /var/lib/mongodb    nfs    vers=4
 
 After saving do <i>sudo mount -a</i>.
 
