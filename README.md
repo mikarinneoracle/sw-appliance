@@ -37,7 +37,7 @@ The next step is to install nfs-utils for NFS mounting and to do this there are 
 <ul>
 <li>Using <i>sudo vi /etc/yum.repos.d/public-yum-ol6.repo</i> copy the contents of <a href="https://raw.githubusercontent.com/mikarinneoracle/sw-appliance/master/public-yum-ol6.repo">this file into it</a>. (However, if the file is there you don't have add or edit it. On regular OL6.6 compute nodes this is the case.)</li>
 <li>Using <i>sudo vi /etc/yum.conf</i> remove the proxy configurations in the end of the file. You can comment (#) them out. (However, on regular OL6.6 compute nodes this need not to be done.)</li>
-<li>Finally do <i>sudo yum install nsf-utils</i>.</li>
+<li>Finally do <i>sudo yum install nfs-utils</i>.</li>
 <li>After this is done let's create the OSCSA NFS mounting point for Dockers to use. This is used to store files in the Oracle Storage Cloud service.</li>
 </ul>
 
