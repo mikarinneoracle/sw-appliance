@@ -77,6 +77,7 @@ If you want to fully test MongoDB working in this example, do the following (see
 </ul>
 
 You may try iterating this a few times to see how it works!
+<a href="https://github.com/mikarinneoracle/rollingupdateinstall/blob/master/README.md">Check out also this for creating and testing a sample app.</a>
 
 #### Example stack testing tool
 ![Logo](testtool.png)
